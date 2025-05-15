@@ -1,0 +1,28 @@
+/* All classes are used in css with . dot notation */
+.username {
+    color: orange;
+}
+
+.item {
+    color: blue;
+}
+
+/* All id's are used in css with # notation */
+
+#submit {
+    color: brown;
+    background-color: antiquewhite;
+    border: none;
+    width: 250px;
+    height: 60px;
+}
+
+div,
+p {
+    border: 1px solid orange;
+}
+
+span,
+a {
+    border: 1px solid rgb(1, 36, 191);
+}
