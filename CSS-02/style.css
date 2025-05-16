@@ -1,0 +1,120 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+/* Colors Properties */
+
+/* color  -  fonts, svg */
+/* background color - background */
+/* border color */
+
+h2 {
+    /* color: orangered; named colors */
+
+    /* HEX Color Code */
+    /* color: #6a5eef; */
+
+    /* RGB or RGBA */
+    /* color: rgb(4, 0, 240); */
+    /* color: rgba(4, 0, 240, 1); */
+
+    /* HSL and HSLa */
+
+    /* Hue Saturation Lightness - Alpha opacity */
+
+    /* color: hsla(44, 100%, 75%, 0.5); */
+    /* background-color: #b8ead9; */
+
+    /* background-color: #b8ead9;
+    border: #ff768b solid 5px; */
+}
+
+/* UNITS */
+
+/* pixels value */
+/* em value */
+/* rem value */
+/* % percentage value */
+
+.parent {
+    width: 250px;
+    height: 250px;
+    background-color: #b8ead9;
+}
+
+/* .child {
+    width: 50%; 
+    height: 50%;
+    background-color: #fa7127;
+} */
+
+/* Relative unit */
+/* em and rem for responsiveness */
+/* .child {
+    width: 20rem; 
+    height: 10rem;
+    background-color: #fa7127;
+} */
+
+/* Viewport Units */
+
+/* .child {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fa7127;
+} */
+
+/* URL */
+
+/* .parent {
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+} */
+
+/* Fonts */
+
+/* h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: capitalize;
+    text-decoration: underline solid #f00000;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+} */
+
+/* padding */
+
+/* padding-top */
+/* padding-right */
+/* padding-bottom */
+/* padding-left */
+
+.child {
+    /* padding-top: 40px; */
+    /* padding: 150px; */
+    /* padding: 50px 100px; */
+    padding: 50px 100px 20px 40px;
+}
