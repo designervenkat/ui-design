@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background-color: #0241ff;
+    display: flex;
+    width: 100vw;
+    padding: 15px;
+}
+
+.brand-logo {
+    width: 90px;
+    margin: 8px 0;
+}
+.brand-logo img {
+    width: 36px;
+    height: auto;
+}
+
+.address {
+    background-color: #1e00ff;
+    width: 300px;
+    height: 60px;
+    border-radius: 150px;
+    padding: 10px 20px;
+}
+.address p,
+.address span {
+    color: aliceblue;
+}
+.address span {
+    font-size: 12px;
+}
+.search {
+    margin: 0 20px;
+    width: 600px;
+}
+.search input {
+    width: 600px;
+    height: 60px;
+    border-radius: 300px;
+    padding: 10px 20px;
+    border: none;
+}
+.cta {
+    display: flex;
+    width: 400px;
+}
+.cta p {
+    margin: 15px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: aliceblue;
+}
+.cta p span {
+    font-size: 12px;
+}
+.bi-basket3-fill {
+    font-size: 22px;
+}
+
+.nav {
+    background-color: #f2f8fd;
+    height: 60px;
+    padding: 20px 0;
+}
+
+.department {
+    margin: 5px 30px;
+    color: #09004b;
+    font-weight: 600;
+}
+.items {
+    margin: 5px 30px;
+    color: #09004b;
+    font-weight: 400;
+    font-size: 14px;
+}
