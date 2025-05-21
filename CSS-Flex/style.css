@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    background-color: oklch(0.279 0.041 260.031);
+    color: oklch(0.929 0.013 255.508);
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    margin: 140px 0;
+}
+
+.box {
+    background-color: oklch(0.929 0.013 255.508);
+    color: oklch(0.279 0.041 260.031);
+    width: 200px;
+    height: 200px;
+    font-weight: 700;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid salmon 2px;
+    /* margin: 0 5px; */
+}
+
+/* Flex CSS Properties - Flex container */
+.container {
+    width: 90vw; /*  viewport width */
+    height: 40vh;
+    border: 2px solid snow;
+
+    /* Activating the flex container */
+    display: flex;
+
+    flex-direction: row; /* Default set to row |column|row-reverse|col-reverse */
+    flex-wrap: nowrap; /* nowrap | wrap | wrap-reverse */
+
+    /* short hand property for flex-direction and flex-wrap */
+    /* flex-flow: column wrap; */
+
+    justify-content: flex-start; /* flex-start | flex-end | center | space-between | space-around | space-evenly */
+
+    align-items: flex-start; /* flex-start | flex-end | center | stretch */
+
+    /* row-gap: 10px;
+    column-gap: 30px; */
+
+    /* shorthand for row-gap and column-gap */
+    gap: 30px; /* row-gap and column-gap */
+}
+
+/* Flex items */
+.item-one {
+    /* default order is 0 */
+    /* order: 2; */
+}
+.item-two {
+    /* default order is 0 */
+    /* order: 1; */
+}
+.item-three {
+    /* default order is 0 */
+    /* order: 3; */
+
+    /* item grow property */
+    /* flex-grow: 1; */
+    flex-shrink: 0;
+    /* width: 500px; */
+}
+.item-four {
+}
