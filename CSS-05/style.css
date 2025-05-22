@@ -1,0 +1,164 @@
+/* https://cdn.dribbble.com/userupload/18926507/file/original-a16c4c2967229fa52683443ee0c26903.png?resize=2048x1536&vertical=center */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    background-color: oklch(0.984 0.003 247.858);
+    color: oklch(0.279 0.041 260.031);
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+/* Flex  */
+.canvas {
+    background-color: #eae9e3;
+    padding: 60px 40px;
+    width: 90vw;
+    height: 90vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+header {
+    width: 85vw;
+    height: 60px;
+    /* background-color: #fff09a; */
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.left-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+.left-panel .greeting h2 {
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+.left-panel .greeting p {
+    font-weight: 500;
+    color: oklch(0.554 0.046 257.417);
+}
+
+.brand-logo img {
+    width: 60px;
+    height: auto;
+}
+
+.right-panel {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.search-box {
+    flex-grow: 1;
+    background-color: #fff;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 5px;
+}
+.search-box input {
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+    padding: 0 15px;
+}
+.search-box input:focus-visible {
+    outline: none;
+}
+.search-box button {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: #292929;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+}
+
+.notification,
+.message {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.notification .bi-app-indicator,
+.message .bi-chat-dots {
+    font-size: 26px;
+}
+
+.sidebar {
+    width: 60px;
+    background-color: #fff;
+    flex-grow: 1;
+    border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.dashboard-items ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+}
+.dashboard-items ul li.active {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #292929;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dashboard-items ul li i {
+    font-size: 24px;
+}
+
+.dashboard-items ul li {
+    list-style: none;
+    /* margin: 30px 0; */
+}
+
+.user-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #292929;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
