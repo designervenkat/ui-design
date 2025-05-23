@@ -1,0 +1,137 @@
+/* #F7F7F7 Light Color */
+/* #141414 Light Color */
+/* #A1A1A1 Icons Color */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    background-color: #f0f0f0;
+    color: #666666;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    align-items: start;
+    justify-content: center;
+    padding: 50px;
+}
+
+header {
+    background-color: #ffffff;
+    width: 560px;
+    height: 65px;
+    border-radius: 10px;
+    box-shadow: rgba(10, 10, 10, 0.06) 0px 1.2px 1.2px 0px,
+        rgba(10, 10, 10, 0.04) 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+}
+.nav ul li {
+    list-style: none;
+}
+
+.nav ul li a i {
+    font-size: 28px;
+    color: #949494;
+    transition: color 300ms ease-in;
+}
+.nav ul li a i:hover {
+    color: #141414;
+}
+
+.hire-me {
+    background-color: #141414;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.hire-me a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    gap: 10px;
+}
+
+.container {
+    width: 560px;
+    height: 100vh;
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+.sub-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sub-heading .title {
+    font-size: 18px;
+    font-weight: 500;
+}
+.available-chip {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    background-color: oklch(0.925 0.084 155.995);
+    color: oklch(0.527 0.154 150.069);
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.profile-info h1 {
+    color: #141414;
+    font-size: 55px;
+    font-weight: 700;
+}
+.profile-info p {
+    color: #6e6e6e;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    line-height: 30px;
+}
+.user-picture {
+    flex-shrink: 0;
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+    overflow: hidden;
+    border: 10px solid oklch(0.968 0.007 247.896);
+}
+.user-picture img {
+    width: 100%;
+    height: 100%;
+}
