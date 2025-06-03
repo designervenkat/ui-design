@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DOM - Document Object Model</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                width: 100vw;
+                height: 100vh;
+                display: grid;
+                place-content: center;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 14px;
+            }
+
+            .text-container {
+                color: #ffffff;
+                background-color: #92400e;
+                padding: 10px;
+                border: 8px solid #5eead4;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 id="title1" class="header-title1">DOM - Title 1</h2>
+        <h2 id="title2" class="header-title2">DOM - Title 2</h2>
+
+        <script>
+            // Get DOM elements - Selection on Elements
+
+            // Select By ID
+            // const titleEl = document.getElementById('title')
+
+            // Select By ClassName
+            // const titleEl = document.getElementsByClassName('header-title')
+            // const titleEl = document.getElementsByClassName('header-title')[0]
+
+            // Select By Tag Name and pass the index number
+            // const titleEl = document.getElementsByTagName('h2')[2]
+
+            // Recommended - Select using querySelector
+
+            // const titleEl = document.querySelector('#title') // tags // id's // classNames
+            // const titleEl = document.querySelector('.header-title2') // tags // id's // classNames
+            // const titleEl = document.querySelector('h2') // tags // id's // classNames
+
+            // const titleEl = document.querySelectorAll('h2')[1]
+            // const titleEl = document.querySelectorAll('h2')
+            // titleEl.forEach((el) => console.log(el.innerText))
+
+            // DOM Manipulation
+
+            const titleEl = document.querySelector('#title1')
+
+            // Change the text content
+            titleEl.textContent = 'Welcome to Javascript'
+
+            // Change the text color
+            // titleEl.style.color = '#ffffff'
+            // titleEl.style.backgroundColor = '#a21caf'
+            // titleEl.style.padding = '10px'
+            // titleEl.style.border = '8px solid #5eead4'
+
+            // Add a class
+            titleEl.classList.add('text-container')
+
+            // Remove a class
+            titleEl.classList.remove('text-container')
+
+            console.log(titleEl)
+        </script>
+    </body>
+</html>
