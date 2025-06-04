@@ -1,0 +1,219 @@
+<!-- https://developer.mozilla.org/en-US/docs/Web/Events -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DOM - Event Listeners</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                width: 100vw;
+                height: 100vh;
+                display: grid;
+                place-content: center;
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                background-color: #0f172a;
+                color: #e2e8f0;
+                padding: 50px 120px;
+            }
+            h2 {
+                font-weight: 400;
+                margin-bottom: 40px;
+            }
+            .container {
+                width: 90vw;
+                height: 70vh;
+                display: grid;
+                place-content: center;
+                background-color: #0f172a;
+                padding: 50px;
+            }
+            .container-item {
+                display: grid;
+                place-content: center;
+                gap: 10px;
+                margin: 40px 0;
+            }
+
+            button,
+            input {
+                width: 320px;
+                height: 60px;
+                padding: 10px;
+            }
+
+            #mouseover {
+                width: 320px;
+                height: 60px;
+                padding: 10px;
+                background-color: #86198f;
+                display: grid;
+                place-content: center;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>DOM - Event Listeners</h2>
+
+        <!-- Most common events types and names -->
+
+        <!-- Mouse Events :
+
+                click event,
+                double click event,
+                mousedown event,
+                mouseup event,
+                mouseout event,
+                mousewheel event,
+                mouseover event,
+          
+         -->
+
+        <!-- Touch Events : - Mobile or Any touch screen
+
+                touch start,
+                touch end,
+                touch move,
+                touch cancel
+          
+         -->
+
+        <!-- Keboard Events :
+
+                keydown,
+                keypup,
+                keypress
+          
+         -->
+
+        <!-- Form Events :
+
+                focus,
+                blur,
+                change,
+                submit
+          
+         -->
+
+        <!-- Window Events :
+
+                resize,
+                scroll,
+                load,
+                unload,
+          
+         -->
+
+        <div class="container">
+            <div class="container-item">
+                <label for="button-click">Button</label>
+                <button id="btnClick" name="button-click">Click Me</button>
+            </div>
+
+            <div class="container-item">
+                <label for="mouse-over">Mouse Over</label>
+                <div id="mouseover" name="mouse-over">Hover On Me</div>
+            </div>
+
+            <div class="container-item">
+                <label for="input">Keyboard Input</label>
+                <input
+                    id="input"
+                    name="input"
+                    placeholder="Type something here" />
+            </div>
+
+            <div class="container-item">
+                <form id="contact-form">
+                    <label for="input">Form Input</label>
+                    <br />
+                    <br />
+                    <input
+                        id="input"
+                        name="input"
+                        placeholder="Search anything here" />
+                    <br />
+                    <br />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            const buttonEl = document.querySelector('#btnClick')
+            const mouseOverEl = document.querySelector('#mouseover')
+            // console.log(buttonEl)
+
+            // function buttonClicked() {
+            //     console.log('Button Clicked', Date.now())
+            // }
+
+            // buttonEl.addEventListener('click', function () {
+            //     // operations
+            //     // calculations
+            //     // alogrithm
+            //     // logics
+            //     alert('Button Clicked')
+            // })
+
+            // Mouse Over and Out
+            // console.log(mouseOverEl);
+
+            // mouseOverEl.addEventListener('mouseover', function () {
+            //     this.style.backgroundColor = '#6d28d9'
+            // })
+
+            // mouseOverEl.addEventListener('mouseout', function () {
+            //     this.style.backgroundColor = '#65a30d'
+            // })
+
+            // Keyboard Events
+
+            // const inputEl = document.querySelector('#input')
+            // console.log(inputEl)
+
+            // inputEl.addEventListener('keypress', function (event) {
+            //     event.preventDefault()
+            //     console.log(event)
+
+            //     console.log(
+            //         `Key Pressed ${event.key} and Key Code is ${event.keyCode} and Key is ${event.code}`
+            //     )
+            // })
+
+            // Submit Form Event
+            // const formEl = document.querySelector('#contact-form')
+
+            // formEl.addEventListener('submit', function (event) {
+            //     event.preventDefault()
+            //     // console.log(event)
+
+            //     console.log(document.querySelector('#input').value)
+            // })
+
+            // Window load events
+
+            // window.addEventListener('load', function () {
+            //     console.log('Page has loaded !')
+            // })
+
+            // window.addEventListener('resize', function () {
+            //     console.log(
+            //         `Window resized to : ${window.innerWidth} and height ${window.innerHeight}`
+            //     )
+            // })
+
+            window.addEventListener('scroll', function () {
+                console.log('Scroll Detected!')
+            })
+        </script>
+    </body>
+</html>
