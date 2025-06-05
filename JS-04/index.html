@@ -1,0 +1,207 @@
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest -->
+<!-- https://dummyjson.com/docs/products -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Data Fetching</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                width: 100vw;
+                height: 100vh;
+                display: grid;
+                place-content: center;
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                background-color: #0f172a;
+                color: #e2e8f0;
+                padding: 50px 120px;
+            }
+            h2 {
+                font-weight: 400;
+                margin-bottom: 40px;
+            }
+            .container {
+                width: 90vw;
+                height: 70vh;
+                display: grid;
+                place-content: center;
+                background-color: #0f172a;
+                padding: 50px;
+            }
+            .container-item {
+                display: grid;
+                place-content: center;
+                gap: 10px;
+                margin: 40px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Data Fetching - API - Fetch and Async / Await Keyword</h2>
+
+        <div>
+            <!-- Product Card -->
+
+            <!-- Images -->
+            <!-- Title -->
+            <!-- Desc -->
+            <!-- price -->
+        </div>
+        <script>
+            const apiURL =
+                'https://68351b82cd78db2058c04649.mockapi.io/products'
+
+            // Old way of fetching data
+            // const xhr = new XMLHttpRequest() // 0
+            // xhr.open('GET', apiURL) // 1
+
+            // xhr.onreadystatechange = function () {
+            //     // 3
+            //     console.log(xhr.readyState)
+            //     if (xhr.readyState === 4) {
+            //         const data = JSON.parse(this.responseText)
+            //         console.log(data) // 4
+
+            //         data.map((item) =>
+            //             console.log(
+            //                 `Item Name : ${item.title} and id is ${item.id}`
+            //             )
+            //         )
+            //     }
+            // }
+            // xhr.send()
+
+            // Using Fetch
+
+            // GET Method to retrive the data from Backend API
+            // fetch(apiURL)
+            //     .then((response) => response.json())
+            //     .then((data) => data.map((item) => console.log(item.title)))
+            //     .catch((err) => console.log(err))
+
+            // Async / Await keyword
+            // async function getAllProducts() {
+            //     try {
+            //         const response = await fetch(apiURL)
+            //         const data = await response.json()
+            //         console.log(data)
+            //     } catch (error) {
+            //         'Error fetching data : ', error
+            //     }
+            // }
+
+            // POST Method to create data in the Backend API
+            // fetch(apiURL, {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({
+            //         title: 'New Product',
+            //         price: 999,
+            //         desc: 'Lorem ipsum dolor sit amet.',
+            //     }),
+            // })
+            //     .then((response) => response.json())
+            //     .then((data) => console.log('Created :', data))
+            //     .catch((err) => console.error('Error Creating product', err))
+
+            // Async / Await keyword
+            async function createProduct() {
+                try {
+                    const response = await fetch(apiURL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            title: `New Product ${Date.now()}`,
+                            price: 999,
+                            desc: 'Lorem ipsum dolor sit amet.',
+                        }),
+                    })
+                    const data = await response.json()
+                    console.log('Created : ', data)
+                } catch (error) {
+                    console.error('Error Creating product', error)
+                }
+            }
+            // createProduct()
+
+            // PUT Method to update the exisiting product in Backend API
+            async function updateProduct() {
+                try {
+                    const response = await fetch(`${apiURL}/2`, {
+                        method: 'PUT', // update the full details
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            title: `New Product ${Date.now()}`,
+                            price: 250,
+                            desc: 'Updated content for id 2',
+                        }),
+                    })
+                    const data = await response.json()
+                    console.log('Created : ', data)
+                } catch (error) {
+                    console.error('Error Creating product', error)
+                }
+            }
+            // updateProduct()
+
+            // PATCH method to update the partial product
+            async function patchProduct() {
+                try {
+                    const response = await fetch(`${apiURL}/2`, {
+                        method: 'PATCH', // update partials details
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            price: 450,
+                        }),
+                    })
+                    const data = await response.json()
+                    console.log('Created : ', data)
+                } catch (error) {
+                    console.error('Error Creating product', error)
+                }
+            }
+            // patchProduct()
+
+            // DELETE method to delete the record from Backend API
+
+            async function deleteProduct() {
+                try {
+                    const response = await fetch(`${apiURL}/3`, {
+                        method: 'DELETE',
+                    })
+                    const data = await response.json()
+                    console.log('DELETED ITEM : ', data)
+                } catch (error) {
+                    console.error('Error Creating product', error)
+                }
+            }
+            // deleteProduct()
+
+            // Proper way of Error handling
+            async function getAllProducts() {
+                try {
+                    const response = await fetch(`${apiURL}/1`)
+                    if (response.status === 200) {
+                        const data = await response.json()
+                        console.log(data)
+                    } else if (response.status === 404) {
+                        console.log('Resource not found (404)')
+                    } else {
+                        console.log(`Unexpected error : ${response.status}`)
+                    }
+                } catch (error) {
+                    'Error fetching data : ', error
+                }
+            }
+            getAllProducts()
+        </script>
+    </body>
+</html>
