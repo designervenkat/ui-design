@@ -1,0 +1,231 @@
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest -->
+<!-- https://dummyjson.com/docs/products -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Data Fetching</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                width: 100vw;
+                height: 100vh;
+                display: grid;
+                place-content: center;
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                background-color: #0f172a;
+                color: #e2e8f0;
+                padding: 50px 120px;
+            }
+            h2 {
+                font-weight: 400;
+                margin-bottom: 40px;
+            }
+            .container {
+                width: 90vw;
+                height: 70vh;
+                display: grid;
+                place-content: center;
+                background-color: #0f172a;
+                padding: 50px;
+            }
+            .container-item {
+                display: grid;
+                place-content: center;
+                gap: 10px;
+                margin: 40px 0;
+            }
+            #productForm {
+                display: grid;
+                place-content: center;
+                gap: 10px;
+                margin-bottom: 50px;
+            }
+            input,
+            textarea,
+            button {
+                width: 320px;
+                height: 50px;
+                outline: none;
+                padding: 10px 15px;
+            }
+            textarea {
+                height: 70px;
+            }
+            input:focus input:active,
+            button:focus,
+            button:active {
+                outline: none;
+            }
+            button {
+                background-color: #334155;
+                color: #e2e8f0;
+                border: none;
+                cursor: pointer;
+            }
+            table {
+                width: 100%;
+            }
+            td,
+            th {
+                padding: 20px;
+            }
+            img {
+                width: auto;
+                height: 70px;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+            }
+            #delBtn,
+            #editBtn {
+                margin: 5px 0;
+            }
+
+            #delBtn {
+                background-color: rgb(160, 0, 0);
+            }
+            #delBtn:hover {
+                background-color: rgb(198, 1, 1);
+            }
+            #editBtn {
+                background-color: rgb(2, 119, 60);
+            }
+            #editBtn:hover {
+                background-color: rgb(2, 163, 82);
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Add Product</h2>
+
+        <form id="productForm">
+            <input id="title" type="text" placeholder="Product Title" />
+            <textarea id="desc" placeholder="Product Description"></textarea>
+            <input id="price" type="number" placeholder="Product Price" />
+            <input id="image" type="url" placeholder="Product Image" />
+            <button type="submit">Add Product</button>
+        </form>
+
+        <h2>Products List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+        </table>
+
+        <script>
+            const apiURL =
+                'https://68351b82cd78db2058c04649.mockapi.io/products'
+
+            // Fetch All Products
+            async function getAllProducts() {
+                const response = await fetch(apiURL)
+                const products = await response.json()
+                console.log(products)
+
+                const productList = document.getElementById('productList')
+                productList.innerHTML = ''
+                products.forEach((item) => {
+                    productList.innerHTML += `
+                    <tr>
+                        <td>${item.title}</td>
+                        <td>${item.desc}</td>
+                        <td>${item.price}</td>
+                        <td><img src="${item.image}" alt="${item.title}"></td>
+                        <td>
+                        <button id="delBtn" onclick="deleteProduct(${item.id})">Delete</button>
+                        <button id="editBtn" onclick="editProduct(${item.id}, '${item.title}', '${item.desc}', '${item.price}', '${item.image}')">Edit</button>
+                        </td>
+                    </tr>
+                    `
+                })
+            }
+
+            // Add Products
+            document
+                .getElementById('productForm')
+                .addEventListener('submit', async function (event) {
+                    event.preventDefault()
+
+                    const product = {
+                        title: document.getElementById('title').value,
+                        desc: document.getElementById('desc').value,
+                        price: document.getElementById('price').value,
+                        image: document.getElementById('image').value,
+                    }
+
+                    // console.log(product)
+                    const response = await fetch(apiURL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(product),
+                    })
+
+                    console.log(response)
+
+                    if (response.ok) {
+                        event.target.reset() // clear the forms
+                        getAllProducts()
+                    }
+                })
+
+            // Delete Product
+            async function deleteProduct(id) {
+                await fetch(`${apiURL}/${id}`, {
+                    method: 'DELETE',
+                })
+                getAllProducts() // fetch the latest products
+            }
+
+            // Edit Product
+            async function editProduct(id, title, desc, price, image) {
+                document.getElementById('title').value = title
+                document.getElementById('desc').value = desc
+                document.getElementById('price').value = price
+                document.getElementById('image').value = image
+
+                document.getElementById('productForm').addEventListener(
+                    'submit',
+                    async function (event) {
+                        event.preventDefault()
+
+                        const updatedProduct = {
+                            title: document.getElementById('title').value,
+                            desc: document.getElementById('desc').value,
+                            price: document.getElementById('price').value,
+                            image: document.getElementById('image').value,
+                        }
+
+                        const response = await fetch(`${apiURL}/${id}`, {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(updatedProduct),
+                        })
+
+                        if (response.ok) {
+                            event.target.reset() // clear the forms
+                            getAllProducts() // fetch the latest products
+                        }
+                    },
+                    { once: true }
+                )
+            }
+
+            getAllProducts() // fetch the latest products
+        </script>
+    </body>
+</html>
